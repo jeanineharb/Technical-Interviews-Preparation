@@ -1,1 +1,3 @@
-# Technical-Interviews-Preparation
+# Technical Interviews Preparation
+
+Language: Java
