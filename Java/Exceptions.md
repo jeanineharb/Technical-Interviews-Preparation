@@ -1,6 +1,6 @@
 # Exceptions
 
-## java.lang:
+## java.lang
 
 - ArithmeticException
 - ArrayIndexOutOfBoundsException
@@ -15,11 +15,11 @@
 - NullPointerException
 - NumberFormatedException
 
-## java.util:
+## java.util
 
 - ConcurrentModificationException
 
-## java.io :
+## java.io
 
 - EOFException
 - FileNotFoundException
