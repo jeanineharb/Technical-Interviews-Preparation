@@ -21,7 +21,7 @@
 
 ```java
 /* The Node class is defined as follows:
-    class Node {
+     class Node {
         int data;
         Node left;
         Node right;
