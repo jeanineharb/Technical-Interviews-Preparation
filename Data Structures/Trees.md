@@ -15,7 +15,33 @@
 ## Types of Trees
 
 - Binary: Each node has zero, one, or two children. This assertion makes many tree operations simple and efficient.
-- Binary Search: A binary tree where any left child node has a value less than its parent node, and any right child node has a value greater than or equal to that of its parent node.
+- Binary Search (BST): A binary tree where any left child node has a value less than its parent node, and any right child node has a value greater than or equal to that of its parent node.
+
+### Check whether a tree is a BST
+
+```java
+/* The Node class is defined as follows:
+    class Node {
+        int data;
+        Node left;
+        Node right;
+     }
+
+     We do not consider a binary tree to be a binary search tree if it contains duplicate values.
+
+     Constraints: 0 <= data <= 10^4
+*/
+
+boolean checkBST(Node root) {
+    return checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE); 
+}
+
+boolean checkBST(Node n, int min, int max){
+    if(n == null) return true;
+    if(n.data <= min || n.data >= max) return false;
+    return checkBST(n.right, n.data, max) && checkBST(n.left, min, n.data);
+}
+```
 
 ## Tree Traversal
 
