@@ -52,6 +52,44 @@ Sort each pair of elements. Then, sort every four elements by merging every two 
 Complexity: O(n log n) expected and worst case.
 
 ```java
+public void mergeSort(int[] a){
+	mergeSort(a, new int[a.length], 0, a.length - 1);
+}
+
+private void mergeSort(int[] a, int[] tmp, int leftStart, int rightEnd){
+	if(leftStart >= rightEnd) return;
+	
+	int middle = (leftStart + rightEnd) / 2;
+	mergeSort(a, tmp, leftStart, middle);
+	mergeSort(a, tmp, middle + 1, rightEnd);
+	mergeHalves(a, tmp, leftStart, rightEnd);
+}
+
+private void mergeHalves(int[] a, int[] tmp, int leftStart, int rightEnd){
+    int leftEnd = (leftStart + rightEnd) / 2;
+    int rightStart = leftEnd + 1;
+    int size = rightEnd - leftStart + 1;
+
+    int leftIndex = leftStart;
+    int rightIndex = rightStart;
+    int index = leftStart;
+
+    while(leftIndex <= leftEnd && rightIndex <= rightEnd){
+        if(a[leftIndex] <= a[rightIndex]){
+            tmp[index] = a[leftIndex];
+            leftIndex++;
+        }
+        else{
+            tmp[index] = a[rightIndex];
+            rightIndex++;
+        }
+        index++;
+	}
+
+    System.arraycopy(a, leftIndex, tmp, index, leftEnd - leftIndex + 1);	
+    System.arraycopy(a, rightIndex, tmp, index, rightEnd - rightIndex + 1);
+    System.arraycopy(tmp, leftStart, a, leftStart, size);
+}
 ```
 
 ## Quick Sort
