@@ -7,10 +7,10 @@ Start at the beginning of an array and swap the first two elements if the first 
 Complexity: O(n^2).
 
 ```java
-public void bubbleSort(int[] array){
-	for(int i=0; i < array.length-1; i++){
-		for(int j=i+1; j < array.length; j++){
-			if(array[i] > array[j]){
+public void bubbleSort(int[] array) {
+	for(int i=0; i < array.length-1; i++) {
+		for(int j=i+1; j < array.length; j++) {
+			if(array[i] > array[j]) {
 				int tmp = array[i];
 				array[i] = array[j];
 				array[j] = tmp;
@@ -32,7 +32,7 @@ public void selectionSort(int[] a) {
 		int min = a[i];
 		int min_index = i;
 
-		for(int j=i+1; j < a.length; j++){
+		for(int j=i+1; j < a.length; j++) {
 			if(a[j] < min){
 				min = a[j];
 				min_index = j; 
@@ -56,7 +56,7 @@ public void mergeSort(int[] a){
 	mergeSort(a, new int[a.length], 0, a.length - 1);
 }
 
-private void mergeSort(int[] a, int[] tmp, int leftStart, int rightEnd){
+private void mergeSort(int[] a, int[] tmp, int leftStart, int rightEnd) {
 	if(leftStart >= rightEnd) return;
 	
 	int middle = (leftStart + rightEnd) / 2;
@@ -65,7 +65,7 @@ private void mergeSort(int[] a, int[] tmp, int leftStart, int rightEnd){
 	mergeHalves(a, tmp, leftStart, rightEnd);
 }
 
-private void mergeHalves(int[] a, int[] tmp, int leftStart, int rightEnd){
+private void mergeHalves(int[] a, int[] tmp, int leftStart, int rightEnd) {
     int leftEnd = (leftStart + rightEnd) / 2;
     int rightStart = leftEnd + 1;
     int size = rightEnd - leftStart + 1;
@@ -74,7 +74,7 @@ private void mergeHalves(int[] a, int[] tmp, int leftStart, int rightEnd){
     int rightIndex = rightStart;
     int index = leftStart;
 
-    while(leftIndex <= leftEnd && rightIndex <= rightEnd){
+    while(leftIndex <= leftEnd && rightIndex <= rightEnd) {
         if(a[leftIndex] <= a[rightIndex]){
             tmp[index] = a[leftIndex];
             leftIndex++;
@@ -99,6 +99,36 @@ Pick a random element and partition the array, such that all numbers that are le
 Complexity: O(n log n) expected, O(n^2) worst case.
 
 ```java
+public void quickSort(int[] a) {
+	quickSort(a, 0, a.length - 1);
+}
+
+private void quickSort(int[] a, int left, int right) {
+	if(left >= right) return;
+	
+	int pivot = a[(left + right) / 2];
+	int index = partition(a, left, right, pivot);
+	quickSort(a, left, index - 1);
+	quickSort(a, index, right);
+}
+
+private int partition(int[] a, int left, int right, int pivot) {
+	while(left <= right){
+		while(a[left] < pivot) left++;
+		while(a[right] > pivot) right--;
+
+		if(left <= right){
+			// Swap items
+			int tmp = a[left];
+			a[left] = a[right];
+			a[right] = tmp;
+
+			left++;
+			right--;
+		}
+	}
+	return left;
+}
 ```
 
 ## Bucket Sort
