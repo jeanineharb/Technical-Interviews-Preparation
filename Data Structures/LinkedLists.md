@@ -81,3 +81,22 @@ boolean hasCycle(Node head) {
     }
 }
 ```
+
+## Merge Lists
+
+```java
+Node mergeLists(Node headA, Node headB) {
+    if(headA == null) return headB;
+    if(headB == null) return headA;
+
+    if(headA.data > headB.data) {
+        Node tmp = headB; 
+        headB = headB.next;
+        tmp.next = headA;
+        headA = tmp; 
+    }
+    
+    headA.next = mergeLists(headA.next, headB);
+    return headA;
+}
+```
