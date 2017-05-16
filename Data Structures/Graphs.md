@@ -29,6 +29,7 @@ public class Graph {
 		s.adjacent.add(d);
 	}
 
+	// DFS
 	public boolean hasPathDFS(int source, int destination) {
 		Node s = getNode(source);
 		Node d = getNode(destination);
@@ -44,6 +45,29 @@ public class Graph {
 
 		for(Node child : s.adjacent){
 			if(hasPathDFS(child, d, visited)) return true;
+		}
+		
+		return false;
+	}
+
+	// BFS
+	public boolean hasPathBFS(int source, int destination) {
+		LinkedList<Node> nextToVisit = new LinkedList<>();
+		HashSet<Integer> visited = new HashSet<>();
+
+		nextToVisit.add(source);
+
+		while(!nextToVisit.isEmpty()) {
+			Node node = nextToVisit.remove();
+
+			if(node == destination) return true;
+
+			if(visited.contains(node.id)) continue;
+			visited.add(node.id);
+
+			for(Node child : node.adjacent) {
+				nextToVisit.add(child);
+			}
 		}
 		
 		return false;
