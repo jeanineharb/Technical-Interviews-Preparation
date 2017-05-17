@@ -59,6 +59,8 @@ Performance considerations: An resizable array hits capacity (i.e., has to copy 
 
 ## Left Rotation
 
+A left rotation operation on an array of size n shifts each of the array's elements one (or more) unit(s) to the left.
+
 ```java
 public int[] arrayLeftRotation(int[] array, int size, int shift) {
     int[] rotatedArray = new int[size];
