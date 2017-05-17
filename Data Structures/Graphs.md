@@ -37,12 +37,6 @@ This representation can also be used to represent a weighted graph. The weights 
 
 **Cons**: Queries like whether there is an edge from vertex u to vertex v are not efficient and can be done O(V).
 
-## Graph Traversal
-
-- Depth First Search: DFS involves searching a node and all its children before proceeding to its siblings.
-
-- Breadth First Search: BFS involves searching a node and its siblings before going on to any children.
-
 ### Edge List
 
 One simple way to represent a graph is just a list, or array of |E| edges, which we call an edge list. 
@@ -54,6 +48,12 @@ If edges have weights, add either a third element to the array or more informati
 **Pros**: Saves space, simple to implement.
 
 **Cons**: If we want to find whether the graph contains a particular edge, we have to search through the edge list. 
+
+## Graph Traversal
+
+- Depth First Search: DFS involves searching a node and all its children before proceeding to its siblings.
+
+- Breadth First Search: BFS involves searching a node and its siblings before going on to any children.
 
 ```java
 public class Graph {
