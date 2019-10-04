@@ -7,6 +7,7 @@ Start at the beginning of an array and swap the first two elements if the first 
 Complexity: O(n^2).
 
 ```java
+// java
 public void bubbleSort(int[] array) {
 	for(int i=0; i < array.length-1; i++) {
 		for(int j=i+1; j < array.length; j++) {
@@ -18,6 +19,17 @@ public void bubbleSort(int[] array) {
 		}
 	}
 }
+```
+
+```python
+#python
+def bubble_sort(unsorted):
+    nb = len(unsorted)
+    for i in range(nb-1):
+        for j in range(i+1, nb):            
+            if unsorted[i] > unsorted[j]:
+                unsorted[i], unsorted[j] = unsorted[j], unsorted[i]
+    return unsorted
 ```
 
 ## Selection Sort
