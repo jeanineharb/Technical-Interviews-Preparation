@@ -3,6 +3,7 @@
 ## Iterative Solution
 
 ```java
+// java
 public long fibonacci(int n) {
 	if(n == 0) return 0;
 	if(n < 3) return 1;
@@ -20,9 +21,23 @@ public long fibonacci(int n) {
 }
 ```
 
+```python
+# python
+def fibonacci_generator(n):
+	if n < 1 :
+		return [0]
+
+	arr = [0, 1]
+	for i in range(2, n+1):
+		arr.append(arr[i-1] + arr[i-2])
+
+	return arr
+```
+
 ## Recursive Solution
 
 ```java
+// java
 int fibonacci(int n) {
     if(n == 0) return 0;
     if(n == 1) return 1;
