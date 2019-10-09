@@ -1,3 +1,3 @@
 # Technical Interviews Preparation
 
-Language: Java
+Languages: Java, Python
